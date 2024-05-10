@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Date is required' });
     }
 
-    const bookedSlots = await db.collection('payments').find({ date, status: 'CREATED' }).toArray();
+    const bookedSlots = await db.collection('slots').find({ date, status: 'PAID' }).toArray();
     const slots = bookedSlots.map((slot) => slot.timeSlot);
 
     res.status(200).json({ success: true, slots });
