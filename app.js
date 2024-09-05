@@ -7,6 +7,7 @@ require('dotenv').config();
 const initiatePaymentRoute = require('./routes/initiatePayment');
 const paymentStatusRoute = require('./routes/paymentStatus');
 const getBookedSlotsRoute = require('./routes/getBookedSlots');
+const testLogRoute = require('./routes/testLog');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use('/api/initiatePayment', initiatePaymentRoute);
 app.use('/api/paymentStatus', paymentStatusRoute);
 app.use('/api/getBookedSlots', getBookedSlotsRoute);
+app.use('/api/testLog', testLogRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
